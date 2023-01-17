@@ -5,13 +5,11 @@
 </template>
 
 <script>
-import search from "./components/search.vue"
-import render from "./components/render.vue"
-import append from "./components/append.vue"
+import search from "./components/search/index.vue"
+import render from "./components/render/index.vue"
+import append from "./components/append/index.vue"
 
 export default{
-
-  
   components: {search,render,append},
   data(){
     return {
