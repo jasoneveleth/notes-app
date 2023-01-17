@@ -1,5 +1,5 @@
 <template>
-    <div class="foo">foo</div>
+    <div class="foo">append screen</div>
 </template>
 
 <style scoped>

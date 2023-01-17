@@ -1,7 +1,8 @@
 <template>
-  <search/>
-  <render/>
-  <append/>
+  <div @click="view=(view+1)%3">goober</div>
+  <search v-if="view==1"/>
+  <render v-if="view==2"/>
+  <append v-if="view==3"/>
 </template>
 
 <script>
@@ -13,7 +14,12 @@ export default{
   components: {search,render,append},
   data(){
     return {
-      variable : "goober"
+      view : 3
+    }
+  },
+  methods:{
+    foo(){
+      console.log("poo")
     }
   }
 }
