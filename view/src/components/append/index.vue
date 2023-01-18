@@ -1,7 +1,6 @@
 <template>
-  <div class="foo">append screen</div>
+  <button @click="display_render">back to render screen</button>
   <textarea @input="savetocookie">{{$cookies.get("appenddata")}}</textarea>
-  <button   @click="display_render">back to render screen</button>
   <button>append</button> <!-- TODO: needs to emit an event -->
 </template>
 
@@ -25,5 +24,9 @@ export default{
 <style scoped>
 .foo{
     color: red;
+}
+button {
+  display: block;
+  font-family: monospace;
 }
 </style>

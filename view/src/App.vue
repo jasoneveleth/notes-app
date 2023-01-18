@@ -13,7 +13,7 @@ export default{
   components: {search,render,append},
   data(){
     return {
-      view : 1,
+      view : 1, // TODO: this should be in a cookie
       currentfile: ""
     }
   },
@@ -22,7 +22,7 @@ export default{
 
 <style>
 html, body{
-  margin: 10px;
+  margin: 0;
   height: 100%;
   width: 100%;
   /* background: blue; */

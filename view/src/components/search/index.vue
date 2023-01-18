@@ -1,5 +1,4 @@
 <template>
-  <div class="foo">search screen</div>
   <searchbar/>
   <searchtypetoggle/>
   <listofnotes :items="items" v-on:renderfile="render"/>
@@ -17,7 +16,7 @@ export default{
   data(){
     return {
       view: 1,
-      items: ["goober", "toast", "long jhonson"]
+      items: ["goober", "~/notes/ideas.md", "long jhonson"]
     }
   },
   methods:{
