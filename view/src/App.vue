@@ -1,8 +1,6 @@
 <template>
-  <div @click="view=Math.max(view-1, 1)" class="dummy">back</div>
-  <div @click="view=Math.min(view+1, 3)" class="dummy">forward</div>
-  <search v-if="view==1" v-on:screen_change="(newnum) => view = newnum"/>
-  <render v-if="view==2" v-on:screen_change="(newnum) => view = newnum"/>
+  <search v-if="view==1" v-on:screen_change="(newnum) => view = newnum" v-on:renderfile=" (item) => currentfile=item"/>
+  <render v-if="view==2" v-on:screen_change="(newnum) => view = newnum" :currentfile="currentfile"/>
   <append v-if="view==3" v-on:screen_change="(newnum) => view = newnum"/>
 </template>
 
@@ -15,14 +13,10 @@ export default{
   components: {search,render,append},
   data(){
     return {
-      view : 1
+      view : 1,
+      currentfile: ""
     }
   },
-  methods:{
-    // foo(){
-    //   console.log("poo")
-    // }
-  }
 }
 </script>
 
@@ -32,9 +26,5 @@ html, body{
   height: 100%;
   width: 100%;
   /* background: blue; */
-}
-.dummy {
-  display: inline-block;
-  padding: 10px;
 }
 </style>

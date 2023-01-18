@@ -7,6 +7,7 @@
 
 <script>
 export default{
+  emits: ["screen_change"],
   methods: {
     display_render() {
         this.$emit("screen_change", 2)

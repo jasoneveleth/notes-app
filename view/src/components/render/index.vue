@@ -1,12 +1,14 @@
 <template>
   <div class="foo">render screen</div>
-  <button @click="append">+</button>
   <button @click="search">back to search</button>
-  <!-- TODO: rendered markdown -->
+  <button @click="append">+</button>
+  <div>title: {{ currentfile }}</div>
 </template>
 
 <script>
 export default{
+  props: ["currentfile"],
+  emits: ["screen_change"],
   methods: {
     append() {
         this.$emit("screen_change", 3)
