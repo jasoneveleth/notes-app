@@ -1,8 +1,8 @@
 <template>
-    <div class="foo">search screen</div>
-    <searchbar        />
-    <searchtypetoggle />
-    <listofnotes      />
+  <div class="foo">search screen</div>
+  <searchbar/>
+  <searchtypetoggle/>
+  <listofnotes/> <!-- TODO: emits event to go to render -->
 </template>
 
 <script>
@@ -11,11 +11,10 @@ import searchtypetoggle from "./searchtypetoggle.vue"
 import listofnotes      from "./listofnotes.vue"
 
 export default{
-  components: {Vue3ToggleButton, searchbar,searchtypetoggle,listofnotes},
+  components: {searchbar,searchtypetoggle,listofnotes},
   data(){
     return {
       view: 1,
-      enabled: true
     }
   }
 }
