@@ -1,14 +1,16 @@
 <template>
-  <button @click="search">back to search</button>
-  <div class="foo">title: {{currentfile}}</div> 
+  <button @click="$emit('screen_change', 1)">back to search</button>
+  <div class="foo">title: {{currentfile}}</div>
   <div v-html="render_file(currentfile)"></div>
-  <button @click="append">{{ $cookies.get("appenddata") === null ? "+" : "**" }}</button>
+  <plus @click="$emit('screen_change', 3)"/>
 </template>
 
 <script>
 import { marked } from 'marked'
+import plus from "./plus.vue"
 
 export default{
+  components: {plus},
   props: ["currentfile"],
   emits: ["screen_change"],
   data() {
@@ -19,12 +21,6 @@ export default{
   methods: {
     render_file(filename) {
       return marked(`# ${filename}\n\nthis is a file\n- with\n- multiple\n- bullets`)
-    },
-    append() {
-        this.$emit("screen_change", 3)
-    },
-    search() {
-        this.$emit("screen_change", 1)
     }
   }
 }

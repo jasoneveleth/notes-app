@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <div v-for="item in items" @click="renderfile(item)">
-            • {{item}}
+        <div class="item" v-for="item in items" @click="renderfile(item)">
+           > {{item}}
         </div>
     </div>
 </template>
@@ -17,3 +17,10 @@ export default{
     }
 }
 </script>
+
+<style scoped>
+.item {
+  font-size: 18px;
+  margin: 12px 6px;
+}
+</style>

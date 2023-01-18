@@ -1,17 +1,15 @@
 <template>
   <searchbar/>
-  <searchtypetoggle/>
   <listofnotes :items="items" v-on:renderfile="render"/>
   <!-- TODO: needs to read from directory (get the current filenames) -->
 </template>
 
 <script>
-import searchbar        from "./searchbar.vue"
-import searchtypetoggle from "./searchtypetoggle.vue"
-import listofnotes      from "./listofnotes.vue"
+import searchbar from "./searchbar.vue"
+import listofnotes from "./listofnotes.vue"
 
 export default{
-  components: {searchbar,searchtypetoggle,listofnotes},
+  components: {searchbar,listofnotes},
   emits: ["renderfile","screen_change"],
   data(){
     return {

@@ -1,6 +1,6 @@
 <template>
   <button @click="display_render">back to render screen</button>
-  <textarea @input="savetocookie">{{$cookies.get("appenddata")}}</textarea>
+  <textarea @input="savetocookie" placeholder="Text">{{$cookies.get("appenddata")}}</textarea>
   <button>append</button> <!-- TODO: needs to emit an event -->
 </template>
 
@@ -28,5 +28,11 @@ export default{
 button {
   display: block;
   font-family: monospace;
+}
+textarea {
+  border-color: #fff;
+  width: 100%;
+  height: 100%;
+  resize: none;
 }
 </style>
