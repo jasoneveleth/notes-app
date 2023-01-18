@@ -2,7 +2,7 @@
   <div class="foo">render screen</div>
   <button @click="search">back to search</button>
   <button @click="append">+</button>
-  <div>title: {{ currentfile }}</div>
+  <div>title: {{ currentfile }}</div>   <!-- TODO: needs to render the file -->
 </template>
 
 <script>

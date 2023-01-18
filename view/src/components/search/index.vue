@@ -2,7 +2,8 @@
   <div class="foo">search screen</div>
   <searchbar/>
   <searchtypetoggle/>
-  <listofnotes :items="items" v-on:renderfile="render"/> <!-- TODO: emits event to go to render -->
+  <listofnotes :items="items" v-on:renderfile="render"/>
+  <!-- TODO: needs to read from directory (get the current filenames) -->
 </template>
 
 <script>
