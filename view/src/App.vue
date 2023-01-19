@@ -1,9 +1,7 @@
 <template>
-  <div class="content">
     <search v-if="view==1" v-on:screen_change="(newnum) => view = newnum" v-on:renderfile=" (item) => currentfile=item"/>
     <render v-if="view==2" v-on:screen_change="(newnum) => view = newnum" :currentfile="currentfile"/>
     <append v-if="view==3" v-on:screen_change="(newnum) => view = newnum"/>
-  </div>
 </template>
 
 <script>
@@ -23,13 +21,21 @@ export default{
 </script>
 
 <style>
+*{
+  box-sizing: inherit;
+}
+
 html, body{
   margin: 0;
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
   /* background: blue; */
 }
-.content {
+#app{
   padding: 16px;
+  margin: 0;
+  height: 100%;
+  width: 100%;
 }
 </style>
