@@ -1,14 +1,16 @@
 const express = require('express')
 const app = express()
-// const cors = require("cors")
-// app.use(cors())
+const os = require('os')
+const path = require('path')
 
 const PORT = process.env.PORT || 25565;
 const api = require("./api")
-const vue = "../view/dist"
+const frontend_dir = "../view/dist"
+const images_dir = path.join(os.homedir(), "notes", "images")
 
 app.use('/api', api)
-app.use(express.static(vue));
+app.use(express.static(frontend_dir))
+app.use('/images', express.static(images_dir))
 
 app.listen(PORT, ()=>console.log(`Running server on port ${PORT}`))
 
