@@ -1,14 +1,16 @@
 <template>
   <searchbar :default_text="this.$cookies.get('current_filename')" @click="$emit('screen_change', 1)"/>
-  <div v-html="text"></div>
+  <div class="rendered-markdown">
+    <div v-html="text"></div>
+  </div>
   <plus @click="$emit('screen_change', 3)"/>
 </template>
 
 <script>
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
-import plus from "./plus.vue"
-import searchbar from "../search/searchbar.vue"
+import plus from "./plus-button.vue"
+import searchbar from "../search/search-bar.vue"
 
 export default{
   components: {plus,searchbar},
@@ -32,7 +34,8 @@ export default{
     margin-left: 10px;
     color: blue;
 }
-button {
-  font-family: monospace;
+.rendered-markdown >>> img {
+  max-height: 500px;
+  max-width: 300px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="item" v-for="item in items" @click="$emit('renderfile', item)">
+        <div class="item" v-for="item in items" :key="item" @click="$emit('renderfile', item)">
            > {{item}}
         </div>
     </div>
@@ -8,7 +8,9 @@
 
 <script>
 export default{
-    props: ["items"],
+    props: {
+        items: Object
+    },
     emits: ["renderfile"],
 }
 </script>

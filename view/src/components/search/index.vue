@@ -4,8 +4,8 @@
 </template>
 
 <script>
-import searchbar from "./searchbar.vue"
-import listofnotes from "./listofnotes.vue"
+import searchbar from "./search-bar.vue"
+import listofnotes from "./list-of-notes.vue"
 
 export default{
   components: {searchbar,listofnotes},

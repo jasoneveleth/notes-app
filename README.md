@@ -8,6 +8,7 @@ TODO:
 - append button needs to float w keyboard
 - append button needs to resset the cookie
 - toggle button needs to actually toggle
+- should list of filenames have the times on it? (that can be used for keys)
 
 INSTRUCTIONS:
 ```bash

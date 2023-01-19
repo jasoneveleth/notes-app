@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-  <button @click="$emit('screen_change', 2)">back to render screen</button>
-    <textarea @input="savetocookie" placeholder="Text">{{$cookies.get("appenddata")}}</textarea>
-  <button @click="send_append()">append</button>
+  <button class="btn" @click="$emit('screen_change', 2)">back to render screen</button>
+    <textarea class="textarea" @input="savetocookie" placeholder="Text">{{$cookies.get("appenddata")}}</textarea>
+  <button class="btn" @click="send_append()">append</button>
 </div>
 </template>
 
@@ -29,7 +29,7 @@ export default{
 .foo{
     color: red;
 }
-button {
+.btn {
   display: block;
   font-family: monospace;
 }
@@ -40,7 +40,7 @@ button {
   width: 100%;
   height: 100%;
 }
-textarea {
+.textarea {
   border-color: #fff;
   width: 100%;
   height: 100%;
