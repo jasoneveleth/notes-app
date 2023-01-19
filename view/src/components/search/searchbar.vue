@@ -7,11 +7,17 @@
                 <path d="M12,13 L17,18" stroke-linecap="square"></path>
             </g>
         </svg>
-        <input type="text" placeholder="Search">
+        <input type="text" :placeholder="default_text">
     </div>
     <div class="toggle"></div>
   </div>
 </template>
+
+<script>
+export default {
+    props: ["default_text"]
+}
+</script>
 
 <style scoped>
 * {

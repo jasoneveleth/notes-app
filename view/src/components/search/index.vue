@@ -1,5 +1,5 @@
 <template>
-  <searchbar/>
+  <searchbar :default_text="'Search'"/>
   <listofnotes :items="items" v-on:renderfile="render"/>
   <!-- TODO: needs to read from directory (get the current filenames) -->
 </template>

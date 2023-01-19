@@ -1,6 +1,5 @@
 <template>
-  <button @click="$emit('screen_change', 1)">back to search</button>
-  <div class="foo">title: {{currentfile}}</div>
+  <searchbar :default_text="currentfile" @click="$emit('screen_change', 1)"/>
   <div v-html="render_file(currentfile)"></div>
   <plus @click="$emit('screen_change', 3)"/>
 </template>
@@ -8,9 +7,10 @@
 <script>
 import { marked } from 'marked'
 import plus from "./plus.vue"
+import searchbar from "../search/searchbar.vue"
 
 export default{
-  components: {plus},
+  components: {plus,searchbar},
   props: ["currentfile"],
   emits: ["screen_change"],
   data() {
