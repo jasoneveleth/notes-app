@@ -1,9 +1,10 @@
 const express = require('express')
 const fs      = require('fs')
 const router  = express.Router()
-const os = require("os");
+const os = require("os")
+const path = require('path');
 
-const NOTESDIRECTORY = os.homedir() + '/notes'
+const NOTESDIRECTORY = path.join(os.homedir(), 'notes')
 
 router.use(express.json())
 
@@ -22,10 +23,11 @@ router.get('/contents', (req, res) => {
 })
 
 router.get('/append', (req, res) => {
-    const filename = req.query.filename // full path
+    const filename = path.join(NOTESDIRECTORY, req.query.filename)
+    console.log(filename)
     const content  = req.query.contents
     try{
-       fs.appendFileSync(`./${filename}`, content, {root: NOTESDIRECTORY})
+       fs.appendFileSync(filename, content)
        res.send({"status":"ok"})
     }catch(err){
         console.log(err)

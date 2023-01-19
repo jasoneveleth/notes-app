@@ -1,7 +1,6 @@
 <template>
   <searchbar :default_text="'Search'"/>
   <listofnotes :items="items" v-on:renderfile="render"/>
-  <!-- TODO: needs to read from directory (get the current filenames) -->
 </template>
 
 <script>
@@ -14,14 +13,19 @@ export default{
   data(){
     return {
       view: 1,
-      items: ["goober", "~/notes/ideas.md", "long jhonson"]
+      items: [],
     }
   },
   methods:{
     render(item){
       this.$emit("renderfile",item)
       this.$emit("screen_change", 2)
+    },
+  },
+  async mounted() {
+      const res = await fetch(`${this.$api}/list`)
+      const {names: filenames} = await res.json()
+      this.items = filenames
     }
-  }
 }
 </script>

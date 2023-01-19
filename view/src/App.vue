@@ -1,7 +1,7 @@
 <template>
-    <search v-if="view==1" v-on:screen_change="(newnum) => view = newnum" v-on:renderfile=" (item) => currentfile=item"/>
+    <search v-if="view==1" v-on:screen_change="(newnum) => view = newnum" v-on:renderfile="(item) => currentfile=item"/>
     <render v-if="view==2" v-on:screen_change="(newnum) => view = newnum" :currentfile="currentfile"/>
-    <append v-if="view==3" v-on:screen_change="(newnum) => view = newnum"/>
+    <append v-if="view==3" v-on:screen_change="(newnum) => view = newnum" :filename="currentfile"/>
 </template>
 
 <script>

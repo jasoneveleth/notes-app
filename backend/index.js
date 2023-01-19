@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-const PORT = 3000
+const PORT = process.env.PORT || 25565;
 const api = require("./api")
 const vue = "../view/dist"
 

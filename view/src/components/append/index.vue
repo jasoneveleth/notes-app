@@ -1,23 +1,26 @@
 <template>
   <div class="container">
-  <button @click="display_render">back to render screen</button>
+  <button @click="$emit('screen_change', 2)">back to render screen</button>
     <textarea @input="savetocookie" placeholder="Text">{{$cookies.get("appenddata")}}</textarea>
-  <button>append</button> <!-- TODO: needs to emit an event -->
+  <button @click="send_append()">append</button>
 </div>
 </template>
 
 <script>
 export default{
+  props: ["filename"],
   emits: ["screen_change"],
   methods: {
-    display_render() {
-        this.$emit("screen_change", 2)
-    },
     savetocookie(event){
       const element = event.target
       const value   = element.value
       $cookies.set("appenddata", value)
-      console.log("test:",$cookies.get("appenddata"))
+      console.log("cookie:", $cookies.get("appenddata"))
+    },
+    send_append() {
+      const encoded_content = encodeURI("\n" + $cookies.get("appenddata"))
+      const encoded_filename = encodeURI(this.filename)
+      fetch(`${this.$api}/append?filename=${encoded_filename}&contents=${encoded_content}`)
     }
   }
 }

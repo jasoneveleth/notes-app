@@ -1,6 +1,6 @@
 <template>
   <searchbar :default_text="currentfile" @click="$emit('screen_change', 1)"/>
-  <div v-html="render_file(currentfile)"></div>
+  <div v-html="text"></div>
   <plus @click="$emit('screen_change', 3)"/>
 </template>
 
@@ -18,11 +18,11 @@ export default{
       text: "",
     }
   },
-  methods: {
-    render_file(filename) {
-      return marked(`# ${filename}\n\nthis is a file\n- with\n- multiple\n- bullets`)
+  async mounted() {
+      const res = await fetch(`${this.$api}/contents?filename=${this.currentfile}`)
+      const contents = await res.text()
+      this.text = marked(contents)
     }
-  }
 }
 </script>
 

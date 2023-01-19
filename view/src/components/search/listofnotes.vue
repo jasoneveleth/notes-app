@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="item" v-for="item in items" @click="renderfile(item)">
+        <div class="item" v-for="item in items" @click="$emit('renderfile', item)">
            > {{item}}
         </div>
     </div>
@@ -10,11 +10,6 @@
 export default{
     props: ["items"],
     emits: ["renderfile"],
-    methods:{
-        renderfile(item){
-            this.$emit("renderfile", item)
-        }
-    }
 }
 </script>
 
