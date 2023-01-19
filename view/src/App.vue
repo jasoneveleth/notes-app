@@ -53,4 +53,8 @@ html, body{
   height: 100%;
   width: 100%;
 }
+img {
+  max-height: 500px;
+  max-width: 300px;
+}
 </style>
