@@ -31,12 +31,5 @@ router.get('/append', (req, res) => {
         res.send({error:`file failed to append to ${filename}`})
     }
 })
-
-router.get('/', (req, res) => {
-    const foo = {
-        available_routes: ["/list", "/append", "/contents"]
-    }
-    res.send(foo)
-})
   
 module.exports = router
