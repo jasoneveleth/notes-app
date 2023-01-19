@@ -19,7 +19,7 @@ export default{
     }
   },
   async mounted() {
-      const res = await fetch(`${this.$api}/contents?filename=${this.currentfile}`)
+      const res = await fetch(`/api/contents?filename=${this.currentfile}`)
       const contents = await res.text()
       this.text = marked(contents)
     }

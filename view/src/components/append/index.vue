@@ -20,7 +20,7 @@ export default{
     send_append() {
       const encoded_content = encodeURI("\n" + $cookies.get("appenddata"))
       const encoded_filename = encodeURI(this.filename)
-      fetch(`${this.$api}/append?filename=${encoded_filename}&contents=${encoded_content}`)
+      fetch(`/api/append?filename=${encoded_filename}&contents=${encoded_content}`)
     }
   }
 }

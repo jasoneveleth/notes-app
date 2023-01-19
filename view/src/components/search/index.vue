@@ -23,7 +23,7 @@ export default{
     },
   },
   async mounted() {
-      const res = await fetch(`${this.$api}/list`)
+      const res = await fetch(`/api/list`)
       const {names: filenames} = await res.json()
       this.items = filenames
     }
