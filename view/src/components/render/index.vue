@@ -1,5 +1,5 @@
 <template>
-  <searchbar :default_text="currentfile" @click="$emit('screen_change', 1)"/>
+  <searchbar :default_text="this.$cookies.get('current_filename')" @click="$emit('screen_change', 1)"/>
   <div v-html="text"></div>
   <plus @click="$emit('screen_change', 3)"/>
 </template>
@@ -11,7 +11,6 @@ import searchbar from "../search/searchbar.vue"
 
 export default{
   components: {plus,searchbar},
-  props: ["currentfile"],
   emits: ["screen_change"],
   data() {
     return {
@@ -19,7 +18,7 @@ export default{
     }
   },
   async mounted() {
-      const res = await fetch(`/api/contents?filename=${this.currentfile}`)
+      const res = await fetch(`/api/contents?filename=${this.$cookies.get("current_filename")}`)
       const contents = await res.text()
       this.text = marked(contents)
     }

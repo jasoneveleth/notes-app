@@ -8,7 +8,6 @@
 
 <script>
 export default{
-  props: ["filename"],
   emits: ["screen_change"],
   methods: {
     savetocookie(event){
@@ -19,7 +18,7 @@ export default{
     },
     send_append() {
       const encoded_content = encodeURI("\n" + $cookies.get("appenddata"))
-      const encoded_filename = encodeURI(this.filename)
+      const encoded_filename = encodeURI(this.$cookies.get("current_filename"))
       fetch(`/api/append?filename=${encoded_filename}&contents=${encoded_content}`)
     }
   }
