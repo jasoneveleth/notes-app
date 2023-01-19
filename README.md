@@ -1,5 +1,9 @@
 # notes-app
 
-the search bar should be present in the render view (with the place holder text of the current filename) and when you click on it, it takes you back to the search screen. It shouldn't have teh toggle and the text should be centered
+TODO:
 
-maybe put the back to render button where plus button is so its easy to switch back and forth (if you need to reference something when you're writing)
+- need to actually filter the as i search
+- maybe put the back to render button where plus button is so its easy to switch back and forth (if you need to reference something when you're writing)
+- make current_file a cookie
+- make view a cookie
+- git add, commit, push (node exec Sync -- different from spawn sync)

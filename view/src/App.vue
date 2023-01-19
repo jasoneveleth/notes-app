@@ -1,7 +1,7 @@
 <template>
-    <search v-if="view==1" v-on:screen_change="(newnum) => view = newnum" v-on:renderfile="(item) => currentfile=item"/>
-    <render v-if="view==2" v-on:screen_change="(newnum) => view = newnum" :currentfile="currentfile"/>
-    <append v-if="view==3" v-on:screen_change="(newnum) => view = newnum" :filename="currentfile"/>
+    <search v-if="screen_num==1" v-on:screen_change="(newnum) => screen_num = newnum" v-on:renderfile="(item) => currentfile=item"/>
+    <render v-if="screen_num==2" v-on:screen_change="(newnum) => screen_num = newnum" :currentfile="currentfile"/>
+    <append v-if="screen_num==3" v-on:screen_change="(newnum) => screen_num = newnum" :filename="currentfile"/>
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default{
   components: {search,render,append},
   data(){
     return {
-      view : 1, // TODO: this should be in a cookie
+      screen_num : 1,
       currentfile: ""
     }
   },
@@ -30,7 +30,6 @@ html, body{
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  /* background: blue; */
 }
 #app{
   padding: 16px;
