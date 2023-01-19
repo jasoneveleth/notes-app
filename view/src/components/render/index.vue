@@ -6,6 +6,7 @@
 
 <script>
 import { marked } from 'marked'
+import DOMPurify from 'dompurify'
 import plus from "./plus.vue"
 import searchbar from "../search/searchbar.vue"
 
@@ -20,7 +21,7 @@ export default{
   async mounted() {
       const res = await fetch(`/api/contents?filename=${this.$cookies.get("current_filename")}`)
       const contents = await res.text()
-      this.text = marked(contents)
+      this.text = DOMPurify.sanitize(marked(contents))
     }
 }
 </script>
