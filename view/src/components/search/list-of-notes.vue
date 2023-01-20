@@ -16,7 +16,7 @@
                     </g>
                 </svg>
                 <svg v-if="checked" @click="checked = !checked" class="favorite-svg">
-                    <use xlink:href="@/assets/star-fill.svg"/>
+                    <use href="@/assets/star-fill.svg#star-icon"/>
                 </svg>
            </div>
         </div>
@@ -79,13 +79,14 @@ export default{
   align-items: center;
 }
 .end {
-    width: 30px;
+    /* width: 30px; */
+    color: var(--yellow);
 }
 .favorite-svg {
     margin: auto;
     height: var(--star-symbol-width);
     width: var(--star-symbol-width);
-    color: var(--yellow);
+    fill: currentColor;
 }
 .star-outline {
     fill: var(--icon-grey);
