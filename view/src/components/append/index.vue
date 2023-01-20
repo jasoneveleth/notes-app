@@ -15,7 +15,7 @@ export default{
       this.$cookies.set("appenddata", value)
     },
     on_append() {
-      if (this.$cookies.get("appenddata") == "") {
+      if (!this.$cookies.get("appenddata")) {
         return
       }
       const encoded_content = encodeURI(this.$cookies.get("appenddata"))
