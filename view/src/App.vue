@@ -44,6 +44,8 @@ export default{
   --yellow: #ffcc00;
   --black: #000;
   --icon-grey: #A1A2A3;
+  --vert-padding: 5px;
+  --horizontal-padding: 15px;
 }
 *{
   box-sizing: inherit;
@@ -56,7 +58,10 @@ html, body{
   font-family: Helvetica, sans-serif;
 }
 #app{
-  padding: 5px 15px;
+  padding-top: calc(env(safe-area-inset-top) + var(--vert-padding));
+  padding-bottom: calc(env(safe-area-inset-bottom) + var(--vert-padding));
+  padding-left: calc(env(safe-area-inset-left) + var(--horizontal-padding));
+  padding-right: calc(env(safe-area-inset-right) + var(--horizontal-padding));
   margin: 0;
   height: 100%;
   width: 100%;

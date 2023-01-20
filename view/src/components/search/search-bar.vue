@@ -4,9 +4,9 @@
         <svg class="search-icon">
             <use href="@/assets/magnifying-glass.svg#img"/>
         </svg>
-        <input v-model="mytext" @input="$emit('newtext', mytext)" ref="input" class="search-input" type="text" :placeholder="default_text">
+        <input @input="$emit('newtext', mytext)" ref="input" class="search-input" type="text" v-model="mytext" :placeholder="default_text">
     </div>
-    <div v-if="focus" class="toggle" @click="checked = !checked" :style="{backgroundColor: checked ? 'var(--blue)' : 'white'}">
+    <div v-if="focus" class="toggle" @click="toggleclik" :style="{backgroundColor: checked ? 'var(--blue)' : 'white'}">
         <svg v-if="checked" class="check-mark-svg">
             <use href="@/assets/check-mark.svg#img"/>
         </svg>
@@ -23,9 +23,16 @@ export default {
     data() {
         return {
             checked: false,
+            mytext: "",
         }
     },
     emits: ["newtext"],
+    methods: {
+        toggleclik() {
+            console.log("cliockjjfdksljfdsl!!")
+            this.checked = !this.checked
+        }
+    },
     mounted(){
         if(this.focus){
             this.$refs.input.focus()

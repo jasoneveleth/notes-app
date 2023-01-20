@@ -1,5 +1,5 @@
 <template>
-  <searchbar focus="true" :default_text="'Search'" v-on:newtext="oninput"/>
+  <searchbar :focus="true" :default_text="'Search'" v-on:newtext="oninput"/>
   <listofnotes :query="query" :noteslist="items" v-on:renderfile="render"/>
 </template>
 
@@ -23,6 +23,7 @@ export default{
       this.$emit("screen_change", 2)
     },
     oninput(input) {
+      console.error("hello")
       this.query = input
     }
   },

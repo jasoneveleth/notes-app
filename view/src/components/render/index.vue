@@ -34,8 +34,8 @@ export default{
     margin-left: 10px;
     color: blue;
 }
-.rendered-markdown >>> img {
+/* .rendered-markdown >>> img {
   max-height: 500px;
   max-width: 300px;
-}
+} */
 </style>
