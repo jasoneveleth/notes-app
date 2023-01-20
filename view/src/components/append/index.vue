@@ -1,7 +1,7 @@
 <template>
   <div class="container">
   <button class="btn" @click="$emit('screen_change', 2)">back to render screen</button>
-    <textarea class="textarea" @input="savetocookie" placeholder="Text">{{text}}</textarea>
+    <textarea class="maintext" v-model="text" @input="savetocookie" placeholder="Text"></textarea>
   <button class="btn" @click="on_append()">append</button>
 </div>
 </template>
@@ -9,18 +9,15 @@
 <script>
 export default{
   emits: ["screen_change"],
-  data() {
-    return {
-      text: "",
-    }
-  },
   methods: {
     savetocookie(event){
       const value = event.target.value
       this.$cookies.set("appenddata", value)
-      this.text = value
     },
     on_append() {
+      if (this.$cookies.get("appenddata") == "") {
+        return
+      }
       const encoded_content = encodeURI(this.$cookies.get("appenddata"))
       const encoded_filename = encodeURI(this.$cookies.get("current_filename"))
       fetch(`/api/append?filename=${encoded_filename}&contents=${encoded_content}`)
@@ -49,7 +46,7 @@ export default{
   width: 100%;
   height: 100%;
 }
-.textarea {
+.maintext {
   border-color: #fff;
   width: 100%;
   height: 100%;
