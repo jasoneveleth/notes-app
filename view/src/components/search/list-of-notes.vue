@@ -49,7 +49,7 @@ export default{
     emits: ["renderfile"],
     methods: {
         process_list(list) {
-            return list.map((item) => item['vis'] = item.filename.slice(0, -3))
+            return list.map((item) => {item['vis'] = item.filename.slice(0, -3); return item})
                        .filter((item) => matches(this.query, item.vis))
         }
     }
