@@ -16,6 +16,7 @@ app.use(express.static(frontend_dir))
 app.use('/images', express.static(images_dir))
 
 app.listen(PORT, ()=>console.log(`Running server on port ${PORT}`))
+app.config.globalProperties.$host = process.env.API || "http://aqua.jason.cash:25565"
 
 app.get('/', function (req, res) {
     res.sendFile("index.html", {root: vue})

@@ -27,7 +27,7 @@ export default{
     }
   },
   async mounted() {
-      const res = await fetch(`http://aqua.jason.cash:25565/api/list`)
+      const res = await fetch(`${this.$host}/api/list`)
       const {files: files} = await res.json()
       this.items = files
     }
