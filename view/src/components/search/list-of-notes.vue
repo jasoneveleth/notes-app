@@ -48,12 +48,9 @@ export default{
     },
     emits: ["renderfile"],
     methods: {
-        myfilter(ele) {
-            return matches(this.query, ele)
-        },
         process_list(list) {
             list.map((str) => str.slice(0, -3))
-                .filter(myfilter)
+                .filter((ele) => matches(this.query, ele))
         }
     }
 }
