@@ -41,6 +41,9 @@ export default{
   --background-grey: #E6E8EB;
   --text-grey: #9FA2A9;
   --blue: #639AF8;
+  --yellow: #ffcc00;
+  --black: #000;
+  --icon-grey: #A1A2A3;
 }
 *{
   box-sizing: inherit;
