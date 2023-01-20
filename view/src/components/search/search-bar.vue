@@ -6,7 +6,7 @@
         </svg>
         <input @input="$emit('newtext', mytext)" ref="input" class="search-input" type="text" v-model="mytext" :placeholder="default_text">
     </div>
-    <div v-if="focus" class="toggle" @click="toggleclik" :style="{backgroundColor: checked ? 'var(--blue)' : 'white'}">
+    <div v-if="focus" class="toggle" @click="toggleclik" :style="toggle_color">
         <svg v-if="checked" class="check-mark-svg">
             <use href="@/assets/check-mark.svg#img"/>
         </svg>
@@ -36,6 +36,11 @@ export default {
     mounted(){
         if(this.focus){
             this.$refs.input.focus()
+        }
+    },
+    computed: {
+        toggle_color() {
+            return {backgroundColor: this.checked ? 'var(--blue)' : 'white'}
         }
     }
 }
@@ -72,7 +77,7 @@ export default {
 .search-input {
     outline: none;
     border: 1px transparent;
-    border-radius: 6px;
+    border-radius: var(--border-radius);
     background-color: var(--background-grey);
     color: var(--black);
     height: var(--height);

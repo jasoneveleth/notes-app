@@ -2,12 +2,6 @@
 
 ## TODO
 
-- fix warning!!
-
-append:
-- back button where plus button is
-- append/submit button at top: big blue rounded rectangle, greyed out when no text
-
 search:
 - the search bar should be what you left off typing. I think maybe it should be a drop down
 - filenames should change color when its matched (match should be red) -- matches should also reutrn the indexes of the matches of the characters on success, and matches should be reduce()-ed into 3 lists (full tag matches, the whole search matches in a row, and it fuzzy matches) then concatted in that priority

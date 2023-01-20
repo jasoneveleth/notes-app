@@ -43,9 +43,11 @@ export default{
   --blue: #639AF8;
   --yellow: #ffcc00;
   --black: #000;
+  --white: #fff;
   --icon-grey: #A1A2A3;
   --vert-padding: 5px;
   --horizontal-padding: 15px;
+  --border-radius: 6px;
 }
 *{
   box-sizing: inherit;
