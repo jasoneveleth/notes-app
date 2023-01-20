@@ -11,7 +11,7 @@ TODO:
 - in Things 5, when you scroll down on the area, it triggers search (and there's a nice animation with it). I want that
 - look at capacitor for ios app (potential issue is for routing): https://www.youtube.com/watch?v=x2jRs7Qqai8&ab_channel=Fireship, https://capacitorjs.com/
 - ios style guide https://www.learnui.design/blog/ios-font-size-guidelines.html
-- tags should appear as symbols (replacing the symbol that's there), https://www.npmjs.com/package/yaml-front-matter
+- tags should appear as symbols (replacing the symbol that's there), https://www.npmjs.com/package/yaml-front-matter, also convert all tags to front-matter
 
 INSTRUCTIONS:
 ```bash

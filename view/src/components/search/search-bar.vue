@@ -48,7 +48,7 @@ export default {
     --font-size: 16px;
     --toggle-width: 33px;
     --toggle-border-width: 2px;
-    --gap: 10px;
+    --gap: 15px;
 }
 .container {
     display: flex;
@@ -77,7 +77,7 @@ export default {
     height: var(--height);
     padding: 8px 12px;
     width: 100%;
-    padding-left: 30px;
+    padding-left: var(--padding);
     font-size: var(--font-size);
 }
 .search-input::placeholder {
