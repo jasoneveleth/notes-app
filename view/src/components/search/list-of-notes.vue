@@ -83,6 +83,7 @@ export default{
     margin: auto;
     height: var(--star-symbol-width);
     width: var(--star-symbol-width);
+    color: var(--yellow);
 }
 .star-outline {
     fill: var(--icon-grey);
