@@ -9,7 +9,7 @@
         </svg>
         <input v-model="mytext" @input="$emit('newtext', mytext)" ref="input" class="search-input" type="text" :placeholder="default_text">
     </div>
-    <div v-if="focus" class="toggle" @v-model="checked" :style="{backgroundColor: checked ? 'var(--blue)' : 'white'}">
+    <div v-if="focus" class="toggle" @click="onClick" :style="{backgroundColor: checked ? 'var(--blue)' : 'white'}">
         <svg v-if="checked" class="check-mark-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="6.83594 -74.6582 78.85746 78.80859"> <!-- top-left-corner-x top-left-corner-y width height -->
             <g>
                 <path class="check-mark-circle" fill="#9FA2A9" d="M46.2402 4.15039C67.7734 4.15039 85.6934-13.7207 85.6934-35.2539C85.6934-56.7871 67.7246-74.6582 46.1914-74.6582C24.707-74.6582 6.83594-56.7871 6.83594-35.2539C6.83594-13.7207 24.7559 4.15039 46.2402 4.15039Z"/>
@@ -30,10 +30,20 @@ export default {
         default_text: String,
         focus: Boolean,
     },
+    data() {
+        return {
+            checked: false,
+        }
+    },
     emits: ["newtext"],
     mounted(){
         if(this.focus){
             this.$refs.input.focus()
+        }
+    },
+    methods: {
+        onClick() {
+            this.checked = !this.checked
         }
     }
 }
