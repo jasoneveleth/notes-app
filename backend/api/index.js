@@ -11,8 +11,7 @@ router.use(express.json())
 router.get('/list', (req, res) => {
     const filenames = fs.readdirSync(NOTESDIRECTORY)
     const file_list = filenames.filter((f) => f.split('.').pop() == "md")
-                               .map((ele) => {return {filename: ele}})
-    console.log(file_list)
+                                .map((ele) => {return {filename: ele}})
     res.send({files: file_list})
 })
 
@@ -27,7 +26,7 @@ router.get('/contents', (req, res) => {
 
 router.get('/append', (req, res) => {
     const filename = path.join(NOTESDIRECTORY, req.query.filename)
-    console.log(filename)
+    console.log("appending to:", filename)
     const content  = req.query.contents
     try{
        fs.appendFileSync(filename, content)
