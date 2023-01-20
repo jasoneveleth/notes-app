@@ -1,7 +1,7 @@
 <template>
   <div class="container">
   <button class="btn" @click="$emit('screen_change', 2)">back to render screen</button>
-    <textarea class="maintext" v-model="text" @input="savetocookie" placeholder="Text"></textarea>
+    <textarea class="maintext" v-model="text" @input="savetocookie" ref="text" placeholder="Text"></textarea>
   <button class="btn" @click="on_append()">append</button>
 </div>
 </template>
@@ -22,11 +22,11 @@ export default{
       const encoded_filename = encodeURI(this.$cookies.get("current_filename"))
       fetch(`/api/append?filename=${encoded_filename}&contents=${encoded_content}`)
       this.$cookies.set("appenddata", "")
-      this.text = ""
+      this.$ref.text.value = ""
     }
   },
   created() {
-    this.text = this.$cookies.get("appenddata")
+    this.$ref.text.value = this.$cookies.get("appenddata")
   }
 }
 </script>
