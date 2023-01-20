@@ -84,7 +84,7 @@ export default {
     border: 1px transparent;
     border-radius: 6px;
     background-color: var(--background-grey);
-    color: var(--text-grey);
+    color: #000;
     height: var(--height);
     padding: 8px 12px;
     width: 100%;
