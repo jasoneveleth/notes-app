@@ -12,6 +12,7 @@ router.get('/list', (req, res) => {
     const filenames = fs.readdirSync(NOTESDIRECTORY)
     const file_list = filenames.filter((f) => f.split('.').pop() == "md")
                                .map((ele) => {return {filename: ele}})
+    console.log(file_list)
     res.send({files: file_list})
 })
 
