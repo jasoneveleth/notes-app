@@ -10,7 +10,9 @@ router.use(express.json())
 
 router.get('/list', (req, res) => {
     const filenames = fs.readdirSync(NOTESDIRECTORY)
-    res.send({names: filenames.filter((f) => f.split('.').pop() == "md")})
+    const file_list = filenames.filter((f) => f.split('.').pop() == "md")
+                               .map((ele) => {return {filename: ele}})
+    res.send({files: file_list})
 })
 
 router.get('/contents', (req, res) => {

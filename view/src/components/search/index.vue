@@ -28,8 +28,8 @@ export default{
   },
   async mounted() {
       const res = await fetch(`/api/list`)
-      const {names: filenames} = await res.json()
-      this.items = filenames
+      const {files: files} = await res.json()
+      this.items = files
     }
 }
 </script>

@@ -8,7 +8,7 @@
                     </g>
                 </svg>
            </div>
-           <div class="filename" @click="$emit('renderfile', item)">{{ item }}</div>
+           <div class="filename" @click="$emit('renderfile', item.filename)">{{ item.vis }}</div>
            <div class="end">
                 <svg v-if="!checked" @click="checked = !checked" class="favorite-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108.438 110.596">
                     <g>
@@ -49,8 +49,8 @@ export default{
     emits: ["renderfile"],
     methods: {
         process_list(list) {
-            return list.map((str) => str.slice(0, -3))
-                       .filter((ele) => matches(this.query, ele))
+            return list.map((item) => item['vis'] = item.filename.slice(0, -3))
+                       .filter((item) => matches(this.query, item.vis))
         }
     }
 }
