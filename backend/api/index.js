@@ -9,9 +9,24 @@ const NOTESDIRECTORY = path.join(os.homedir(), 'notes')
 router.use(express.json())
 
 router.get('/list', (req, res) => {
+    const mystat = (filename) => {
+        const stat = fs.statSync(path.join(NOTESDIRECTORY, ele))
+        return {
+            size: stat.size,
+            atimeMs: stat.atimeMs,
+            mtimeMs: stat.mtimeMs,
+            ctimeMs: stat.ctimeMs,
+            birthtimeMs: stat.birthtimeMs,
+            atime: stat.atime,
+            mtime: stat.mtime,
+            ctime: stat.ctim,
+            birthtime: stat.birthtime
+        }
+    }
+
     const filenames = fs.readdirSync(NOTESDIRECTORY)
     const file_list = filenames.filter((f) => f.split('.').pop() == "md")
-                                .map((ele) => {return {filename: ele, stat: fs.statSync(path.join(NOTESDIRECTORY, ele))}})
+                                .map((ele) => {return {filename: ele, stat: mystat(ele)}})
     res.send({files: file_list})
 })
 
