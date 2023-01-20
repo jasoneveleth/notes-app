@@ -22,11 +22,11 @@ export default{
       const encoded_filename = encodeURI(this.$cookies.get("current_filename"))
       fetch(`/api/append?filename=${encoded_filename}&contents=${encoded_content}`)
       this.$cookies.set("appenddata", "")
-      this.$ref.text.value = ""
+      this.$refs.text.value = ""
     }
   },
   created() {
-    this.$ref.text.value = this.$cookies.get("appenddata")
+    this.$refs.text.value = this.$cookies.get("appenddata")
   }
 }
 </script>
