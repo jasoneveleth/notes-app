@@ -1,15 +1,16 @@
 <template>
   <div class="container">
     <div class="text">
-        <svg role="img" class="search-icon" width="18" height="18" viewBox="0 0 22 22">
-            <g transform="translate(2.000000, 2.000000)" stroke="#999" stroke-width="1.5" fill="none">
+        <svg role="img" class="search-icon" viewBox="0 0 22 22">
+            <g transform="translate(2.000000, 2.000000)" stroke="#9FA2A9" stroke-width="1.8" fill="none">
                 <circle cx="7" cy="7" r="7"></circle>
                 <path d="M12,13 L17,18" stroke-linecap="square"></path>
             </g>
         </svg>
         <input ref="input" class="search-input" type="text" :placeholder="default_text">
     </div>
-    <div class="toggle"></div>
+    <div class="toggle" @click="onClick" :style="{backgroundColor: content_flag ? 'white' : 'var(--blue)'}">
+    </div>
   </div>
 </template>
 
@@ -17,11 +18,22 @@
 export default {
     props: {
         default_text: String,
-        focus       : Boolean
+        focus: Boolean,
+    },
+    data() {
+        return {
+            content_flag: false,
+        }
     },
     mounted(){
-        if (this.focus){
+        if(this.focus){
             this.$refs.input.focus()
+        }
+    },
+    methods: {
+        onClick() {
+            console.log("HERE click")
+            this.content_flag = !this.content_flag
         }
     }
 }
@@ -29,7 +41,12 @@ export default {
 
 <style scoped>
 * {
-    box-sizing: inherit;
+    --height: 35px;
+    --padding: 30px;
+    --icon-size: 18px;
+    --font-size: 16px;
+    --toggle-width: 33px;
+    --toggle-border-width: 2px;
 }
 .container {
     display: flex;
@@ -38,30 +55,42 @@ export default {
 .text {
     box-sizing: border-box;
     display: inline-block;
+    height: var(--height);
 }
 .search-icon {
-    margin: 0 12px;
+    margin: calc((var(--height) - var(--icon-size)) / 2) calc((var(--padding) - var(--icon-size))/2);
     position: absolute;
-    font-size: 17px;
-    height: 44px;
+    height: var(--icon-size);
+    width: var(--icon-size);
+}
+.search-input {
+    outline: none;
 }
 .search-input {
     border: 1px transparent;
-    border-radius: 15px;
-    background-color: #ddd;
-    height: 44px;
+    border-radius: 6px;
+    background-color: var(--background-grey);
+    color: var(--text-grey);
+    height: var(--height);
     width: 300px;
     padding: 8px 12px;
-    padding-left: 36px;
-    font-size: 18px;
+    padding-left: 30px;
+    font-size: var(--font-size);
 }
 .search-input::placeholder {
-    color: #999;
+    color: var(--text-grey);
+}
+.full {
+    background-color: var(--blue);
 }
 .toggle {
-    background-color: red;
-    height: 44px;
-    width: 50px;
+    border: var(--toggle-border-width);
+    border-style: solid;
+    border-color: var(--blue);
+    border-radius: calc(var(--toggle-width)/2);
+    height: var(--toggle-width);
+    width: var(--toggle-width);
     display: inline-block;
+    margin: calc((var(--height) - var(--toggle-width))/2) 0;
 }
 </style>

@@ -37,15 +37,20 @@ export default{
 </script>
 
 <style>
+:root {
+  --background-grey: #E6E8EB;
+  --text-grey: #9FA2A9;
+  --blue: #639AF8;
+}
 *{
   box-sizing: inherit;
 }
-
 html, body{
   margin: 0;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
 }
 #app{
   padding: 16px;

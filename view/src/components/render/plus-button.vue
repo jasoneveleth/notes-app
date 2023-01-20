@@ -10,7 +10,7 @@ export default{
 <style scoped>
 .only {
     border: 2px transparent;
-    background-color: #ddd;
+    background-color: var(--blue);
     color: white;
     border-radius: 50%;
     position: fixed;

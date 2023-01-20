@@ -9,6 +9,7 @@ TODO:
 - append button needs to resset the cookie
 - toggle button needs to actually toggle
 - should list of filenames have the times on it? (that can be used for keys)
+- in Things 5, when you scroll down on the area, it triggers search (and there's a nice animation with it). I want that
 
 INSTRUCTIONS:
 ```bash
