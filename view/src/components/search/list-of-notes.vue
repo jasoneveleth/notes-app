@@ -49,12 +49,8 @@ export default{
     emits: ["renderfile"],
     methods: {
         process_list(list) {
-            console.log(list)
-            console.log(list.map((str) => str.slice(0, -3)))
-            console.log(list.map((str) => str.slice(0, -3))
-                .filter((ele) => matches(this.query, ele)))
-            list.map((str) => str.slice(0, -3))
-                .filter((ele) => matches(this.query, ele))
+            return list.map((str) => str.slice(0, -3))
+                       .filter((ele) => matches(this.query, ele))
         }
     }
 }
