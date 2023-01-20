@@ -79,8 +79,6 @@ export default {
 }
 .search-input {
     outline: none;
-}
-.search-input {
     border: 1px transparent;
     border-radius: 6px;
     background-color: var(--background-grey);

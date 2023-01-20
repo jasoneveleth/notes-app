@@ -53,7 +53,7 @@ html, body{
   font-family: Helvetica, sans-serif;
 }
 #app{
-  padding: 16px;
+  padding: 5px 15px;
   margin: 0;
   height: 100%;
   width: 100%;
