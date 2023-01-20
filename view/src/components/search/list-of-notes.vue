@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="item" v-for="item in noteslist.filter(myfilter)" :key="item">
+        <div class="item" v-for="item in process_list(noteslist)" :key="item">
            <div class="begin">
                 <svg class="note-symbol-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 95.6055 95.6543">
                     <g>
@@ -50,6 +50,10 @@ export default{
     methods: {
         myfilter(ele) {
             return matches(this.query, ele)
+        },
+        process_list(list) {
+            list.map((str) => str.slice(0, -3))
+                .filter(myfilter)
         }
     }
 }
