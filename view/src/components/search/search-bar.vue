@@ -7,7 +7,7 @@
                 <path d="M12,13 L17,18" stroke-linecap="square"></path>
             </g>
         </svg>
-        <input class="search-input" type="text" :placeholder="default_text">
+        <input ref="input" class="search-input" type="text" :placeholder="default_text">
     </div>
     <div class="toggle"></div>
   </div>
@@ -17,6 +17,12 @@
 export default {
     props: {
         default_text: String,
+        focus       : Boolean
+    },
+    mounted(){
+        if (this.focus){
+            this.$refs.input.focus()
+        }
     }
 }
 </script>

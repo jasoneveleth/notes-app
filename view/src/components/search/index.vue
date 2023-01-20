@@ -1,5 +1,5 @@
 <template>
-  <searchbar :default_text="'Search'"/>
+  <searchbar focus="true" :default_text="'Search'"/>
   <listofnotes :items="items" v-on:renderfile="render"/>
 </template>
 
