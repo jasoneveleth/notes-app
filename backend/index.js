@@ -9,7 +9,7 @@ const api = require("./api")
 const frontend_dir = "../view/dist"
 const images_dir = path.join(os.homedir(), "notes", "images")
 
-app.use(cors) 
+app.use(cors())
 
 app.use('/api', api)
 app.use(express.static(frontend_dir))
