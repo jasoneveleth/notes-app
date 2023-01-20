@@ -53,5 +53,6 @@ export default{
   resize: none;
   padding:5px;
   font-size: 16px;
+  font-family: monospace;
 }
 </style>
