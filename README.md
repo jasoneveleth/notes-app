@@ -2,6 +2,8 @@
 
 ## TODO
 
+- fix warning!!
+
 append:
 - back button where plus button is
 - append/submit button at top: big blue rounded rectangle, greyed out when no text
@@ -18,7 +20,9 @@ render:
 - in Things 5, when you scroll down on the main area, it triggers search (and there's a nice animation with it). I want that
 
 app:
-- look at capacitor for ios app (potential issue is for routing): https://www.youtube.com/watch?v=x2jRs7Qqai8&ab_channel=Fireship, https://capacitorjs.com/
+- capacitor: https://www.youtube.com/watch?v=x2jRs7Qqai8&ab_channel=Fireship, https://capacitorjs.com/
+- expo: https://www.digitalocean.com/community/tutorials/how-to-set-up-build-and-deploy-native-apps-with-vue
+
 
 ## INSTRUCTIONS:
 
