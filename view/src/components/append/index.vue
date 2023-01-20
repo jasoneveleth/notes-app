@@ -20,7 +20,7 @@ export default{
       }
       const encoded_content = encodeURI(this.$cookies.get("appenddata"))
       const encoded_filename = encodeURI(this.$cookies.get("current_filename"))
-      fetch(`/api/append?filename=${encoded_filename}&contents=${encoded_content}`)
+      fetch(`http://aqua.jason.cash:25565/api/append?filename=${encoded_filename}&contents=${encoded_content}`)
       this.$cookies.set("appenddata", "")
       this.$refs.text.value = ""
     }

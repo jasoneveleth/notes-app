@@ -21,7 +21,7 @@ export default{
     }
   },
   async mounted() {
-      const res = await fetch(`/api/contents?filename=${this.$cookies.get("current_filename")}`)
+      const res = await fetch(`http://aqua.jason.cash:25565/api/contents?filename=${this.$cookies.get("current_filename")}`)
       const contents = await res.text()
       this.text = DOMPurify.sanitize(marked(contents))
     }
