@@ -1,5 +1,5 @@
 <template>
-    <search v-if="screen_num != 2 && screen_num != 3" v-on:screen_change="set_screen_num" v-on:renderfile="set_filename"/>
+    <search v-if="screen_num != 2 && screen_num != 3" v-on:screen_change="set_screen_num" v-on:renderfile="set_filename" v-on:newtext="handle_input"/>
     <render v-if="screen_num == 2" v-on:screen_change="set_screen_num"/>
     <append v-if="screen_num == 3" v-on:screen_change="set_screen_num"/>
 </template>
@@ -15,6 +15,7 @@ export default{
     return {
       screen_num: 1,
       current_file: "",
+      current_search: "",
     }
   },
   methods: {
@@ -27,7 +28,11 @@ export default{
       console.log(`setting filename: ${item}`)
 
       return this.$cookies.set('current_filename', item)
-    }
+    },
+    handle_input(input) {
+      console.log(input)
+      this.current_search = input;
+    },
   },
   mounted() {
     this.screen_num = this.$cookies.get('screen_num')

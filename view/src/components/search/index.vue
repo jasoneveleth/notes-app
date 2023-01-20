@@ -1,5 +1,5 @@
 <template>
-  <searchbar focus="true" :default_text="'Search'"/>
+  <searchbar focus="true" :default_text="'Search'" v-on:newtext="$emit('newtext', $event)"/>
   <listofnotes :items="items" v-on:renderfile="render"/>
 </template>
 
@@ -9,7 +9,7 @@ import listofnotes from "./list-of-notes.vue"
 
 export default{
   components: {searchbar,listofnotes},
-  emits: ["renderfile","screen_change"],
+  emits: ["renderfile","screen_change","newtext"],
   data(){
     return {
       view: 1,
@@ -20,7 +20,7 @@ export default{
     render(item){
       this.$emit("renderfile",item)
       this.$emit("screen_change", 2)
-    },
+    }
   },
   async mounted() {
       const res = await fetch(`/api/list`)
