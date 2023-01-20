@@ -76,6 +76,10 @@ export default{
 }
 .end {
     width: 30px;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
 }
 .favorite-svg {
     height: var(--star-symbol-width);
