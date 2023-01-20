@@ -16,7 +16,7 @@
                     </g>
                 </svg>
                 <svg v-if="checked" @click="checked = !checked" class="favorite-svg">
-                    <use href="@/assets/star-fill.svg"/>
+                    <use xlink:href="@/assets/star-fill.svg"/>
                 </svg>
            </div>
         </div>
