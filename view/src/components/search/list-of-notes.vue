@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="item" v-for="item in process_list(noteslist)" :key="item">
+        <div class="item" v-for="item in process_list(noteslist)" :key="item.stat.mtime">
            <div class="begin">
                 <svg class="note-symbol-svg">
                     <use href="@/assets/note-symbol.svg#img"/>
@@ -8,6 +8,7 @@
            </div>
            <div class="filename" @click="$emit('renderfile', item.filename)">{{ item.vis }}</div>
            <div class="end">
+                <div class="date">{{ dispaly_date(item.stat.mtime) }}</div>
                 <svg v-if="!checked" @click="checked = !checked" class="favorite-svg star-outline">
                     <use href="@/assets/star-outline.svg#img"/>
                 </svg>
@@ -45,6 +46,20 @@ export default{
         process_list(list) {
             return list.map((item) => {item['vis'] = item.filename.slice(0, -3); return item})
                        .filter((item) => matches(this.query, item.vis))
+        },
+        dispaly_date(mtime) {
+            const date = new Date(mtime)
+            const isToday = (someDate) => {
+                const today = new Date()
+                return someDate.getDate() == today.getDate() &&
+                    someDate.getMonth() == today.getMonth() &&
+                    someDate.getFullYear() == today.getFullYear()
+                }
+            if (isToday(date)) {
+                return "today"
+            } else {
+                return `${date.getMonth()+1}/${date.getDate()}`
+            }
         }
     }
 }
@@ -74,11 +89,15 @@ export default{
   display: flex;
   align-items: center;
 }
+.date {
+    font-size: 12px;
+    color: var(--text-grey);
+}
 .end {
     width: 30px;
     height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
 }
 .favorite-svg {

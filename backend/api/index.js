@@ -13,13 +13,8 @@ router.get('/list', (req, res) => {
         const stat = fs.statSync(path.join(NOTESDIRECTORY, ele))
         return {
             size: stat.size,
-            atimeMs: stat.atimeMs,
-            mtimeMs: stat.mtimeMs,
-            ctimeMs: stat.ctimeMs,
-            birthtimeMs: stat.birthtimeMs,
             atime: stat.atime,
             mtime: stat.mtime,
-            ctime: stat.ctim,
             birthtime: stat.birthtime
         }
     }
@@ -27,6 +22,7 @@ router.get('/list', (req, res) => {
     const filenames = fs.readdirSync(NOTESDIRECTORY)
     const file_list = filenames.filter((f) => f.split('.').pop() == "md")
                                 .map((ele) => {return {filename: ele, stat: mystat(ele)}})
+                                .sort((ele, ele2) => Date.parse(ele.stat.mtime) > Date.parse(ele2.stat.mtime))
     res.send({files: file_list})
 })
 
