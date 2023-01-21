@@ -22,7 +22,10 @@ router.get('/list', (req, res) => {
     const filenames = fs.readdirSync(NOTESDIRECTORY)
     const file_list = filenames.filter((f) => f.split('.').pop() == "md")
                                 .map((ele) => {return {filename: ele, stat: mystat(ele)}})
-                                .sort((ele, ele2) => { Date.parse(ele.stat.mtime) > Date.parse(ele2.stat.mtime)})
+    console.log(file_list)
+    const file_list2 = file_list.sort((ele, ele2) => { Date.parse(ele.stat.mtime) > Date.parse(ele2.stat.mtime)})
+    console.log(file_list2)
+    console.log("--------")
     res.send({files: file_list})
 })
 
