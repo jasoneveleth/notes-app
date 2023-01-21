@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="item" v-for="item in process_list(noteslist)" :key="item.stat.mtime">
+        <div class="item" v-for="item in process_list(noteslist)" :key="item.vis">
            <div class="begin">
                 <svg class="note-symbol-svg">
                     <use href="@/assets/note-symbol.svg#img"/>
@@ -44,6 +44,7 @@ export default{
     emits: ["renderfile"],
     methods: {
         process_list(list) {
+            console.log(list)
             return list.map((item) => {item['vis'] = item.filename.slice(0, -3); return item})
                        .filter((item) => matches(this.query, item.vis))
         },

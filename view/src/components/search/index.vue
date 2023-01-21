@@ -23,7 +23,6 @@ export default{
       this.$emit("screen_change", 2)
     },
     oninput(input) {
-      console.error("hello")
       this.query = input
     }
   },

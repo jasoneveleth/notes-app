@@ -11,7 +11,6 @@ render:
 - code blocks should scroll
 
 app:
-- capacitor: https://www.youtube.com/watch?v=x2jRs7Qqai8&ab_channel=Fireship, https://capacitorjs.com/
 - expo: https://www.digitalocean.com/community/tutorials/how-to-set-up-build-and-deploy-native-apps-with-vue
 
 
