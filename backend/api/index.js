@@ -10,7 +10,7 @@ router.use(express.json())
 
 router.get('/list', (req, res) => {
     const mystat = (filename) => {
-        const stat = fs.statSync(path.join(NOTESDIRECTORY, ele))
+        const stat = fs.statSync(path.join(NOTESDIRECTORY, filename))
         return {
             size: stat.size,
             atime: stat.atime,
