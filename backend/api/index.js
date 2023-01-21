@@ -23,7 +23,7 @@ router.get('/list', (req, res) => {
     const file_list = filenames.filter((f) => f.split('.').pop() == "md")
                                 .map((ele) => {return {filename: ele, stat: mystat(ele)}})
     console.log(file_list)
-    const file_list2 = file_list.sort((ele, ele2) => { return Date.parse(ele.stat.mtime) - Date.parse(ele2.stat.mtime)})
+    const file_list2 = file_list.sort((ele, ele2) => { return Date.parse(ele2.stat.mtime) - Date.parse(ele.stat.mtime)})
     console.log(file_list2)
     console.log("--------")
     res.send({files: file_list})
