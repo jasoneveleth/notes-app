@@ -10,9 +10,6 @@ render:
 - links shouldn't go off screen
 - code blocks should scroll
 
-app:
-- expo: https://www.digitalocean.com/community/tutorials/how-to-set-up-build-and-deploy-native-apps-with-vue
-
 
 ## INSTRUCTIONS:
 
