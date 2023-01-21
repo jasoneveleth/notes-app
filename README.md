@@ -4,7 +4,6 @@
 
 search:
 - filenames should change color when its matched (match should be red) -- matches should also reutrn the indexes of the matches of the characters on success, and matches should be reduce()-ed into 3 lists (full tag matches, the whole search matches in a row, and it fuzzy matches) then concatted in that priority
-- the date should be above favorite `today` and `yesterday` should be their own things, otherwise, but the date like: `2/19`, or `3d ago`
 - tags should appear as symbols (replacing the symbol that's there), https://www.npmjs.com/package/yaml-front-matter, also convert all tags to front-matter
 
 render:

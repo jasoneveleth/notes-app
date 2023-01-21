@@ -99,6 +99,7 @@ export default{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
 }
 .favorite-svg {
     height: var(--star-symbol-width);
