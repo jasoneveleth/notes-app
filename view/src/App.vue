@@ -67,5 +67,7 @@ html, body{
   margin: 0;
   height: 100%;
   width: 100%;
+  max-width: 500px;
+  margin: auto;
 }
 </style>
