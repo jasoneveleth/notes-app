@@ -1,6 +1,20 @@
 # notes-app
 
+New strategy: use iCloud drive on my old mac, and just use the way i have been using. or use api:
+
+https://github.com/MauriceConrad/iCloud-API#icloud--drive
+
+https://github.com/picklepete/pyicloud/tree/master
+
 ## TODO
+
+put search bar on bottom
+
+upload photo (auto id based on regex)
+
+shortcut to dictating an idea. goes into a note for on a day alphabetically first
+
+Flaws: it isn't properly appending things, but the log is correct. I'd like to add the appended text to teh log (and also log it to a file) for backups. But also investigate why it isn't appending
 
 search:
 - filenames should change color when its matched (match should be red) -- matches should also reutrn the indexes of the matches of the characters on success, and matches should be reduce()-ed into 3 lists (full tag matches, the whole search matches in a row, and it fuzzy matches) then concatted in that priority
